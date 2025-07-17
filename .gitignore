@@ -1,0 +1,33 @@
+# C++ Build artifacts
+test
+*.o
+*.obj
+*.exe
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# VS Code settings (keep some, ignore others)
+.vscode/settings.json
+.vscode/launch.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*~
+*.bak
+*.swp
+*.tmp
+
+# Log files
+*.log
