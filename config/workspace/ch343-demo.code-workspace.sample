@@ -1,7 +1,7 @@
 {
     "folders": [
         {
-            "path": "."
+            "path": "../.."
         }
     ],
     "settings": {
@@ -23,6 +23,9 @@
     },
     "tasks": {
         "version": "2.0.0",
+        "options": {
+            "cwd": "${workspaceFolder}/src"
+        },
         "tasks": [
             {
                 "label": "Build C++ Project",
@@ -104,10 +107,10 @@
                 "name": "Debug C++ Program",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "${workspaceFolder}/test",
+                "program": "${workspaceFolder}/src/test",
                 "args": [],
                 "stopAtEntry": false,
-                "cwd": "${workspaceFolder}",
+                "cwd": "${workspaceFolder}/src",
                 "environment": [],
                 "externalConsole": false,
                 "MIMode": "gdb",

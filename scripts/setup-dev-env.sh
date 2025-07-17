@@ -4,30 +4,65 @@
 
 echo "🔧 Setting up CH343 Demo development environment..."
 
+# Get the script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+
+cd "$PROJECT_ROOT"
+
 # Create workspace file from template
 if [ ! -f "ch343-demo.code-workspace" ]; then
-    if [ -f "ch343-demo.code-workspace.sample" ]; then
-        cp ch343-demo.code-workspace.sample ch343-demo.code-workspace
+    if [ -f "config/workspace/ch343-demo.code-workspace.sample" ]; then
+        cp config/workspace/ch343-demo.code-workspace.sample ch343-demo.code-workspace
         echo "✅ Created workspace file: ch343-demo.code-workspace"
     else
-        echo "❌ Template file ch343-demo.code-workspace.sample not found"
+        echo "❌ Template file config/workspace/ch343-demo.code-workspace.sample not found"
         exit 1
     fi
 else
     echo "ℹ️  Workspace file already exists: ch343-demo.code-workspace"
 fi
 
+# Create .vscode directory if it doesn't exist
+mkdir -p .vscode
+
 # Create C++ properties file from template
 if [ ! -f ".vscode/c_cpp_properties.json" ]; then
-    if [ -f ".vscode/c_cpp_properties.json.sample" ]; then
-        cp .vscode/c_cpp_properties.json.sample .vscode/c_cpp_properties.json
+    if [ -f "config/vscode/c_cpp_properties.json.sample" ]; then
+        cp config/vscode/c_cpp_properties.json.sample .vscode/c_cpp_properties.json
         echo "✅ Created C++ properties file: .vscode/c_cpp_properties.json"
     else
-        echo "❌ Template file .vscode/c_cpp_properties.json.sample not found"
+        echo "❌ Template file config/vscode/c_cpp_properties.json.sample not found"
         exit 1
     fi
 else
     echo "ℹ️  C++ properties file already exists: .vscode/c_cpp_properties.json"
+fi
+
+# Create tasks.json from template
+if [ ! -f ".vscode/tasks.json" ]; then
+    if [ -f "config/vscode/tasks.json.sample" ]; then
+        cp config/vscode/tasks.json.sample .vscode/tasks.json
+        echo "✅ Created tasks file: .vscode/tasks.json"
+    else
+        echo "❌ Template file config/vscode/tasks.json.sample not found"
+        exit 1
+    fi
+else
+    echo "ℹ️  Tasks file already exists: .vscode/tasks.json"
+fi
+
+# Create launch.json from template
+if [ ! -f ".vscode/launch.json" ]; then
+    if [ -f "config/vscode/launch.json.sample" ]; then
+        cp config/vscode/launch.json.sample .vscode/launch.json
+        echo "✅ Created launch file: .vscode/launch.json"
+    else
+        echo "❌ Template file config/vscode/launch.json.sample not found"
+        exit 1
+    fi
+else
+    echo "ℹ️  Launch file already exists: .vscode/launch.json"
 fi
 
 # Detect system and suggest configuration
@@ -86,4 +121,4 @@ echo "2. Press Ctrl+Shift+P and run 'C/C++: Select a Configuration'"
 echo "3. Choose the recommended configuration for your system"
 echo "4. Try building with Ctrl+Shift+P → 'Tasks: Run Task' → 'Build C++ Project'"
 echo ""
-echo "📖 For more details, see DEVELOPMENT.md"
+echo "📖 For more details, see docs/DEVELOPMENT.md"

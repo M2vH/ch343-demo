@@ -4,6 +4,7 @@
             "name": "Linux-GCC",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/common/include",
                 "/usr/include/**",
                 "/usr/local/include/**"
             ],
@@ -18,6 +19,7 @@
             "name": "Linux-Clang",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/common/include",
                 "/usr/include/**",
                 "/usr/local/include/**"
             ],

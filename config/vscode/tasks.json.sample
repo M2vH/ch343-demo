@@ -100,6 +100,71 @@
                 "panel": "shared"
             },
             "dependsOn": "Build C++ Project"
+        },
+        {
+            "label": "Build All Examples",
+            "type": "shell",
+            "command": "make",
+            "args": ["examples"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$gcc"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Build Basic Serial Example",
+            "type": "shell",
+            "command": "make",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": ["$gcc"],
+            "options": {
+                "cwd": "${workspaceFolder}/examples/01-basic-serial"
+            }
+        },
+        {
+            "label": "Run Basic Serial Example",
+            "type": "shell",
+            "command": "make",
+            "args": ["run"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/examples/01-basic-serial"
+            }
+        },
+        {
+            "label": "Run Shared Library Example",
+            "type": "shell",
+            "command": "make",
+            "args": ["run"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/examples/02-shared-library"
+            }
         }
     ]
 }
