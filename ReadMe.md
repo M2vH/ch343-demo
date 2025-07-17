@@ -10,6 +10,29 @@ Opening Ubuntu 22.04 on WSL:
 
     - we can see our UART Module as `/dev/ttyACM0`
 
+## Quick Start
+
+### Development Environment Setup
+
+For first-time setup, run the automated setup script:
+
+```bash
+./setup-dev-env.sh
+```
+
+This will:
+- Create a VS Code workspace file from the template
+- Set up C++ configuration for your platform
+- Detect your system and recommend the best configuration
+
+For detailed setup instructions and troubleshooting, see [DEVELOPMENT.md](DEVELOPMENT.md).
+
+### Building and Running
+
+1. Open the workspace: `code ch343-demo.code-workspace`
+2. Build the project: `Ctrl+Shift+P` → "Tasks: Run Task" → "Build C++ Project"
+3. Run the program: `Ctrl+Shift+P` → "Tasks: Run Task" → "Run Program"
+
 ## User Story
 
 As a developer i want to test the communication with a simple commandline program.

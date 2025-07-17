@@ -1,0 +1,129 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+        "C_Cpp.default.cStandard": "c17",
+        "C_Cpp.default.cppStandard": "c++17",
+        "files.associations": {
+            "*.h": "c",
+            "*.hpp": "cpp",
+            "*.cpp": "cpp",
+            "*.c": "c"
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.cpptools",
+            "ms-vscode.makefile-tools"
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Build C++ Project",
+                "type": "shell",
+                "command": "make",
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": ["$gcc"]
+            },
+            {
+                "label": "Clean Build",
+                "type": "shell",
+                "command": "make",
+                "args": ["clean"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                }
+            },
+            {
+                "label": "Debug Build",
+                "type": "shell",
+                "command": "make",
+                "args": ["debug"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": ["$gcc"]
+            },
+            {
+                "label": "Release Build",
+                "type": "shell",
+                "command": "make",
+                "args": ["release"],
+                "group": "build",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                },
+                "problemMatcher": ["$gcc"]
+            },
+            {
+                "label": "Run Program",
+                "type": "shell",
+                "command": "make",
+                "args": ["run"],
+                "group": "test",
+                "dependsOn": "Build C++ Project",
+                "presentation": {
+                    "echo": true,
+                    "reveal": "always",
+                    "focus": false,
+                    "panel": "shared"
+                }
+            }
+        ]
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Debug C++ Program",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "${workspaceFolder}/test",
+                "args": [],
+                "stopAtEntry": false,
+                "cwd": "${workspaceFolder}",
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ],
+                "preLaunchTask": "Debug Build",
+                "miDebuggerPath": "/usr/bin/gdb",
+                "logging": {
+                    "engineLogging": false
+                }
+            }
+        ]
+    }
+}

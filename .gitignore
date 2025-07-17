@@ -13,6 +13,10 @@ test
 # VS Code settings (keep some, ignore others)
 .vscode/settings.json
 .vscode/launch.json
+.vscode/c_cpp_properties.json
+
+# VS Code workspace files (host-specific)
+*.code-workspace
 
 # OS generated files
 .DS_Store
